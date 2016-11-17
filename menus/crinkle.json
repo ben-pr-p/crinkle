@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Run Crinkle",
+        "command": "Crinkle:Run"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Crinkle",
+          "submenu": [
+            {
+              "label": "Run",
+              "command": "Crinkle:Run"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

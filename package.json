@@ -1,0 +1,26 @@
+{
+  "name": "crinkle",
+  "main": "./lib/index",
+  "version": "0.0.0",
+  "description": "An atom plug-in to run, optimize, and test your code at the function level, giving you access to V8 internals.",
+  "keywords": [
+    "v8",
+    "unit test",
+    "jasmine",
+    "atom",
+    "crankshaft",
+    "bailout"
+  ],
+  "activationCommands": {
+    "atom-workspace": "crinkle:run"
+  },
+  "repository": "https://github.com/ben-pr-p/crinkle",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "v8-natives": "0.0.3"
+  }
+}
