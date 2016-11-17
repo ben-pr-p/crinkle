@@ -9,7 +9,7 @@ will run your code in the background give you back:
 All without leaving the comfort of atom!
 
 Coming soon:
-* Automatic generation of `mocha` + `chai` unit tests
+* Automatic generation of `jasmine` unit tests
 * Garbage collector and memory usage information
 * Tests to see if a function is pure
 
@@ -48,18 +48,20 @@ press `Ctrl-Alt-O`...
 /*
  * @crinkle
  *
+ * Before: {
+ *  var a = 5
+ * }
  * Tests: {
  *  three -> factorial(3)
  *  twenty -> factorial(20)
  *  forty -> factorial(40)
  * }
  * Results: {
- *  three -> 6 in 5 ms
- *  twenty -> 2432902008176640000 in 22 ms
- *  forty -> 8.159152832478977e+47 in 38 ms
+ *  three -> 6 in 1 ms -- ✔ optimizable
+ *  twenty -> 2432902008176640000 in 1 ms -- ✔ optimizable
+ *  forty -> 8.159152832478977e+47 in 0 ms -- ✔ optimizable
  * }
  */
-
 function factorial (n) {
   return (n == 1) ? 1 : factorial(n-1) * n
 }
@@ -81,9 +83,9 @@ Support for callbacks is handled with a `--callback` or `-c` flag.
  *  huge -> asyncFn(1000, hi)
  * }
  * Results: {
- *  basic -> 20 in 107 ms
- *  bigger -> 110 in 108 ms
- *  huge -> 1010 in 107 ms
+ *  basic -> 20 in 112 ms -- ✔ optimizable
+ *  bigger -> 110 in 113 ms -- ✔ optimizable
+ *  huge -> 1010 in 113 ms -- ✔ optimizable
  * }
  */
 function asyncFn(num, fn) {
@@ -104,8 +106,8 @@ And promises with a `--promise` or `-p` flag.
  *  bigger -> promiseFn(100)
  * }
  * Results: {
- *  basic -> 20 in 106 ms
- *  bigger -> 110 in 106 ms
+ *  basic -> 20 in 129 ms -- ✔ optimizable
+ *  bigger -> 110 in 127 ms -- ✔ optimizable
  * }
  */
 function promiseFn(num) {
@@ -139,15 +141,14 @@ code execution.
  *  bigger -> addFive(25)
  *  biggest -> addFive(100)
  * }
-  * Results: {
- *  basic -> 8 in 0 ms
- *  bigger -> 30 in 0 ms
- *  biggest -> 105 in 0 ms
+ * Results: {
+ *  basic -> 8 in 0 ms -- ✘ un-optimizable
+ *  bigger -> 30 in 0 ms -- ✘ un-optimizable
+ *  biggest -> 105 in 0 ms -- ✘ un-optimizable
  * }
  */
-
 function addFive (n) {
-  return five + n
+  return eval(`five + ${n}`)
 }
 ```
 
@@ -164,7 +165,7 @@ Complicated test case input? Use a `Before:` block to load it from a file.
  *  t1 -> objIsBig(obj)
  * }
  * Results: {
- *  t1 -> true in 0 ms
+ *  t1 -> true in 1 ms -- ✔ optimizable
  * }
  */
 const objIsBig = obj => {
