@@ -1,4 +1,13 @@
-# crinkle atom plug-in
+# Table of Contents
+
+- [crinkle](#crinkle)
+  * [Basic Usage](#basic-usage)
+  * [Asynchronous Function](#asynchronous-function)
+  * [Global Variable Before](#global-variable-before)
+- [Limitations](#limitations)
+- [Roadmap](#roadmap)
+
+# crinkle
 
 Annotate your code with a block comment of test cases, and `crinkle`
 will run your code in the background give you back:
@@ -12,13 +21,6 @@ Coming soon:
 * Automatic generation of `jasmine` unit tests
 * Garbage collector and memory usage information
 * Tests to see if a function is pure
-
-- [crinkle atom plug-in](#crinkle-atom-plug-in)
-  * [Basic Usage](#basic-usage)
-  * [Asynchronous Function](#asynchronous-function)
-  * [Global Variable Before](#global-variable-before)
-- [Limitations](#limitations)
-- [Roadmap](#roadmap)
 
 ## Basic Usage
 
