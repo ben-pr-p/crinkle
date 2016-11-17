@@ -13,6 +13,13 @@ Coming soon:
 * Garbage collector and memory usage information
 * Tests to see if a function is pure
 
+- [crinkle atom plug-in](#crinkle-atom-plug-in)
+  * [Basic Usage](#basic-usage)
+  * [Asynchronous Function](#asynchronous-function)
+  * [Global Variable Before](#global-variable-before)
+- [Limitations](#limitations)
+- [Roadmap](#roadmap)
+
 ## Basic Usage
 
 Suppose you write a function ...
