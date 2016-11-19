@@ -27,6 +27,18 @@ Coming soon:
 * Garbage collector and memory usage information
 * De-optimization notice (discarding an inline cache due to a hidden class change)
 
+# Installation
+
+I haven't published this to `apm` yet, sorry. It's still a bit buggy. If you want
+to use it while it's in development, make sure you have Atom installed and then
+run
+```
+git clone https://github.com/ben-pr-p/crinkle.git
+cd crinkle
+apm link
+```
+To be published soon!
+
 # Basic Usage
 
 Suppose you write a function ...
